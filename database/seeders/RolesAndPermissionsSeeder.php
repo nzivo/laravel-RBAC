@@ -30,11 +30,13 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => $createUser]);
 
         $superAdmin = 'super-admin';
+        $operationsManager = 'operations-manager';
         $financeManager = 'finance-manager';
         $reseller = 'reseller';
 
         Role::create(['name' => $superAdmin])->givePermissionTo(Permission::all());
         Role::create(['name' => $financeManager])->givePermissionTo($viewUnapprovedLoadingRequests, $viewSenderIdRequested);
         Role::create(['name' => $reseller])->givePermissionTo($viewLowUnits);
+        Role::create(['name' => $operationsManager])->givePermissionTo($viewSenderIdRequested);
     }
 }
