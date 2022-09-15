@@ -12,6 +12,7 @@ class UserTransformer extends TransformerAbstract {
             'id' => (int) $user->id,
             'email' => $user->email,
             'username' => $user->name,
+            'roles' => $user->roles,
         ];
     }
 }

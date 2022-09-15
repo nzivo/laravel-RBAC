@@ -22,12 +22,29 @@ class RolesAndPermissionsSeeder extends Seeder
         $viewUsers = 'view users';
         $viewLowUnits = 'view low units';
         $createUser = 'create user';
+        $createRole ="role-create";
+        $viewRoles = "role-list";
+        $editRoles = "role-edit";
+        $deleteRoles = "role-delete";
+        $userList = 'user-list';
+        $userCreate = 'user-create';
+        $userEdit = 'user-edit';
+        $userDelete = 'user-delete';
+
         // create permissions
         Permission::create(['name' => $viewUnapprovedLoadingRequests]);
         Permission::create(['name' => $viewSenderIdRequested]);
         Permission::create(['name' => $viewUsers]);
         Permission::create(['name' => $viewLowUnits]);
         Permission::create(['name' => $createUser]);
+        Permission::create(['name' => $createRole]);
+        Permission::create(['name' => $viewRoles]);
+        Permission::create(['name' => $editRoles]);
+        Permission::create(['name' => $deleteRoles]);
+        Permission::create(['name' => $userList ]);
+        Permission::create(['name' => $userCreate ]);
+        Permission::create(['name' => $userEdit ]);
+        Permission::create(['name' => $userDelete ]);
 
         $superAdmin = 'super-admin';
         $operationsManager = 'operations-manager';

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -16,6 +17,7 @@ class UserSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         User::factory()->count(1)
+            ->has(UserProfile::factory(1))
             ->create()
             ->each(
                 function($user){
@@ -24,6 +26,16 @@ class UserSeeder extends Seeder
             );
 
         User::factory()->count(2)
+            ->has(UserProfile::factory(1))
+            ->create()
+            ->each(
+                function($user){
+                    $user->assignRole('operations-manager');
+                }
+            );
+
+        User::factory()->count(2)
+            ->has(UserProfile::factory(1))
             ->create()
             ->each(
                 function($user){
@@ -32,6 +44,7 @@ class UserSeeder extends Seeder
             );
 
         User::factory()->count(3)
+            ->has(UserProfile::factory(1))
             ->create()
             ->each(
                 function($user){

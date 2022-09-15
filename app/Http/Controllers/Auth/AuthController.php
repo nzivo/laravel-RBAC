@@ -6,11 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
+use App\Transformers\UserTransformer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class AuthController extends Controller
 {
+    public function currentUser()
+    {
+        $user = auth()->user()->roles;
+        return $user;
+    }
     public function login(Request $request)
     {
         $rules = [
