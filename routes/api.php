@@ -20,7 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 $api = app('Dingo\Api\Routing\Router');
 $api -> version('v1', function($api){
-    $api-> get('/cap', 'App\Http\Controllers\CapUsageController@index');
     $api->group(['prefix' => 'auth'], function($api) {
         $api-> post('/signup', 'App\Http\Controllers\UserController@store');
         $api-> post('/login', 'App\Http\Controllers\Auth\AuthController@login');
