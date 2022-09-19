@@ -21,6 +21,12 @@ git clone https://github.com/nzivo/laravel-RBAC.git
 composer install
 ```
 
+Generate an app key
+
+```
+php artisan key:generate
+```
+
 You should publish the **migration** and the **config/permission.php** config file with:
 
 ```

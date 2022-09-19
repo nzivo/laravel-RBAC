@@ -37,6 +37,7 @@ $api -> version('v1', function($api){
             $api->get('/users', 'App\Http\Controllers\Admin\AdminUserController@index');
             $api->patch('/user/{id}', 'App\Http\Controllers\Admin\AdminUserController@update');
             $api->delete('/user/{id}', 'App\Http\Controllers\Admin\AdminUserController@destroy');
+            $api->get('/user-roles/{id}','App\Http\Controllers\Admin\AdminUserController@get_user_with_role');
             // MANAGE RBAC
             $api->get('/roles', 'App\Http\Controllers\RoleController@index');
             $api->get('/view-role/{id}', 'App\Http\Controllers\RoleController@show');

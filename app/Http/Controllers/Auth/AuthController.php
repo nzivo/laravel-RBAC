@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
@@ -14,8 +15,11 @@ class AuthController extends Controller
 {
     public function currentUser()
     {
-        $user = auth()->user()->roles;
+        $user_id = auth()->user()->id;
+        $user = User::with('roles')->find($user_id);
         return $user;
+        // $user = auth()->user();
+        // return $user;
     }
     public function login(Request $request)
     {

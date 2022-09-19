@@ -31,9 +31,10 @@ class AdminUserController extends Controller
         if(! $users = User::with('roles')->get()){
             throw new NotFoundHttpException('Users not found');
         }
-        return $this->response
-            ->collection($users, new UserTransformer)
-            ->setStatusCode(200);
+        return $users;
+        // return $this->response
+        //     ->collection($users, new UserTransformer)
+        //     ->setStatusCode(200);
     }
 
     /**
@@ -100,6 +101,12 @@ class AdminUserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
+        return $user;
+    }
+
+    public function get_user_with_role($id)
+    {
+        $user = User::with('roles')->find($id);
         return $user;
     }
 
